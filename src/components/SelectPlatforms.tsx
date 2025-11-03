@@ -5,15 +5,15 @@ import { Platform } from "../hooks/useGame";
 
 interface Props {
   onSelectedPlatform: (platform: Platform) => void;
-  platform: string;
+  selectedPlatform: Platform | null;
 }
-const SelectPlatforms = ({ onSelectedPlatform, platform }: Props) => {
+const SelectPlatforms = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
   if (error) return;
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {platform ? platform : "Platform"}
+        {selectedPlatform ? selectedPlatform?.name : "Platform"}
       </MenuButton>
       <MenuList>
         {data.map((p) => (
