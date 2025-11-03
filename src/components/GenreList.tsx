@@ -6,8 +6,9 @@ import GenreListContainer from "./GenreListContainer";
 
 interface Props {
   onSlectedGenre: (genre: Genres) => void;
+  selectedGenre: Genres | null;
 }
-const GenreList = ({ onSlectedGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSlectedGenre }: Props) => {
   const { data, isLoading, error } = useGenre();
 
   if (error) return null;
@@ -29,6 +30,7 @@ const GenreList = ({ onSlectedGenre }: Props) => {
               src={getCroppedImageUrl(genre.image_background)}
             />
             <Button
+              fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
               variant="link"
               fontSize="lg"
               onClick={() => onSlectedGenre(genre)}
