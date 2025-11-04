@@ -5,7 +5,7 @@ interface Props {
   onSelectOrder: (order: string) => void;
   selectOrder: string | null;
 }
-const SelectSort = ({ onSelectOrder, selectOrder }: Props) => {
+const SortSelector = ({ onSelectOrder, selectOrder }: Props) => {
   const sortOrders = [
     { value: "", label: "Relevance" },
     { value: "-added", label: "Date Added" },
@@ -38,4 +38,4 @@ const SelectSort = ({ onSelectOrder, selectOrder }: Props) => {
   );
 };
 
-export default SelectSort;
+export default SortSelector;

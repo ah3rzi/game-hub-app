@@ -4,10 +4,10 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genres } from "./hooks/useGenre";
-import SelectPlatforms from "./components/SelectPlatforms";
 import { Platform } from "./hooks/useGame";
-import SelectSort from "./components/SelectSort";
 import GameHeading from "./components/GameHeading";
+import PlatformSelector from "./components/PlatformSelector";
+import SortSelector from "./components/SortSelector";
 
 export interface GameQuery {
   genre: Genres | null;
@@ -46,14 +46,14 @@ function App() {
           <GameHeading gameQuery={gameQuery} />
           <Flex marginBottom={5}>
             <Box marginRight={5}>
-              <SelectPlatforms
+              <PlatformSelector
                 selectedPlatform={gameQuery.platform}
                 onSelectedPlatform={(platform) =>
                   setGameQuery({ ...gameQuery, platform })
                 }
               />
             </Box>
-            <SelectSort
+            <SortSelector
               selectOrder={gameQuery.sortOrder}
               onSelectOrder={(sortOrder) =>
                 setGameQuery({ ...gameQuery, sortOrder })

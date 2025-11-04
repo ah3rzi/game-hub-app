@@ -7,9 +7,9 @@ interface Props {
   onSelectedPlatform: (platform: Platform) => void;
   selectedPlatform: Platform | null;
 }
-const SelectPlatforms = ({ onSelectedPlatform, selectedPlatform }: Props) => {
-  const { data, error } = usePlatforms();
-  if (error) return;
+const PlatformSelector = ({ onSelectedPlatform, selectedPlatform }: Props) => {
+  const { data } = usePlatforms();
+
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
@@ -26,4 +26,4 @@ const SelectPlatforms = ({ onSelectedPlatform, selectedPlatform }: Props) => {
   );
 };
 
-export default SelectPlatforms;
+export default PlatformSelector;
